@@ -107,6 +107,7 @@ class AhgoraDriver(object):
         
         if match:
             result = self.__driver.find_element_by_id("titulo_mes").text
+            result = result.split(" ")[4]#.split("/")
         else:
             result = "NO MATCH!"
 

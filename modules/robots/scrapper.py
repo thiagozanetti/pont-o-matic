@@ -19,10 +19,9 @@ class AhgoraScrapper(object):
         return self.__table
     
     def appointment_rows(self):
-        tr = self.appointments_table().find_all("tr")
-        print(tr)
         rows = []
-        for row in tr[2:]:
+
+        for row in self.appointments_table().find_all("tr")[2:]:
             cols = row.find_all("td")
             date = cols[0].text.strip()
             appointments = cols[2].text.split(", ") if cols[2].text != "" else []
