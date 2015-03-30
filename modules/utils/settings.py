@@ -1,3 +1,3 @@
 #! /usr/bin/env python
 
-debug = True
+debug = False

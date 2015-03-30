@@ -22,7 +22,8 @@ Result:
 
 import sys, os
 from datetime import datetime, timedelta
-from modules.robots.drivers import AhgoraDriver
+from modules.robots.driver import AhgoraDriver
+from modules.robots.scrapper import AhgoraScrapper
 
 #sys.path.insert(0, os.path.join(base_dir, os.path.dirname(__file__)))
 
@@ -45,13 +46,22 @@ def __print_contents(col1, col2, col3, col4, col5):
     print("")
     
 if __name__ == "__main__":
-    ahgora = AhgoraDriver("460", "460")
+    driver = AhgoraDriver("460", "460")
+#    driver = AhgoraDriver("", "")
     
-    ahgora.log("Logged in!" if ahgora.login() else "Login was not possible!")
-    ahgora.log("Success! Into Appointment page." if ahgora.access_appointment_page() else "Could not access appointment page!")
-    ahgora.log(ahgora.get_month())
-    
-    ahgora.close_driver()
+    result = driver.login()
+    print("Logged in!" if result else "Login was not possible!")
+
+    if result:
+        print("Success! Into Appointment page." if driver.access_appointment_page() else "Could not access appointment page!")
+        print(driver.month())
+        print(driver.name())
+        
+        scrapper = AhgoraScrapper(driver.source())
+#        print(scrapper.appointments_table())
+        print(scrapper.appointment_rows())
+        
+    driver.close_driver()
 
 #    s1 = sys.argv[1] #Begin
 #    s2 = sys.argv[2] #Lunch break
