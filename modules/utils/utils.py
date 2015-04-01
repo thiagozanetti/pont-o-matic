@@ -1,7 +1,8 @@
 #! /usr/bin/env python
 
-import settings
 from datetime import datetime, timedelta
+import os
+import settings
 
 """
 Sends messages to console when debug is enabled.
@@ -9,7 +10,7 @@ Sends messages to console when debug is enabled.
 def log(message):
     if settings.debug:
         print(message)
-
+        
 """
 
 Usage: 
