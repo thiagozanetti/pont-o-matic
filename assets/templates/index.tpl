@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
         <!-- Latest compiled and minified JavaScript -->
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- HTML5 shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -20,11 +20,16 @@
         <![endif]-->
     </head>
     <body>
-        <div>
-            <h4>Apontamentos de <strong>{{data["month"]}}</strong> para <strong>{{data["real_name"]}}</strong></h4>
+        <div class="page-header">
+            <h2>Pont'o'matic</h2>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>Apontamentos de <strong>{{data["month"]}}</strong> para <strong>{{data["real_name"]}}</strong></h4>
+            </div>
         </div>
         <div class="table_responsive">
-            <table class="table table-striped">
+            <table class="table table-striped table-hover table-condensed" width="50%">
                 <thead>
                     <th class="text-center">DATA</th>
                     <th class="text-center">ENTRADA</th>
@@ -42,7 +47,7 @@
                         <td class="text-center">{{appointment}}</td>
                         {% endfor %}
                         <td class="text-center">09</td>
-                        <td class="text-center"><input type="button" value="Criar ocorrência de ponto" /></td>
+                        <td class="text-center"><a href="#" class="btn btn-xs btn-primary">Criar ocorrência de ponto</a>
                     </tr>
                     {% endfor %}
                 </tbody>

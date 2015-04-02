@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 #Debug flag
-DEBUG = True
+DEBUG = False
 
 #Date and time formats
 TIME_FORMAT = "%H:%M"
