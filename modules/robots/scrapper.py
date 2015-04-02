@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 from bs4 import BeautifulSoup
+from modules.utils import settings
 
 class AhgoraScrapper(object):
     __source = ""
@@ -25,6 +26,11 @@ class AhgoraScrapper(object):
             cols = row.find_all("td")
             date = cols[0].text.strip()
             appointments = cols[2].text.split(", ") if cols[2].text != "" else []
-            rows.append({"date":date, "appointments":appointments})
 
+            i = 0
+            while i < (settings.MAX_APPOINTMENTS - len(appointments)): 
+                appointments.append("-")
+                
+            rows.append({"date":date, "appointments":appointments})
+            
         return rows

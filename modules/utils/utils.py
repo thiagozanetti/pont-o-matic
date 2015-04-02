@@ -8,8 +8,14 @@ import settings
 Sends messages to console when debug is enabled.
 """
 def log(message):
-    if settings.debug:
+    if settings.DEBUG:
         print(message)
+        
+def now():
+    return datetime.now().strftime(settings.TIME_FORMAT)
+
+def today():
+    return datetime.today().strftime(settings.DATE_FORMAT)
         
 """
 
@@ -31,8 +37,8 @@ Result:
 
 """
 
-def string_to_time(string_time, mask=settings.time_format):
-    return datetime.combine(datetime.today(), datetime.strptime(string_time, mask).time())
+def string_to_datetime(string_time, string_date=datetime.today(), mask=settings.TIME_FORMAT):
+    return datetime.combine(string_date, datetime.strptime(string_time, mask).time())
 
 def print_contents(col1, col2, col3, col4, col5):
     print("__________________________________________________")
@@ -54,11 +60,11 @@ def print_contents(col1, col2, col3, col4, col5):
 #    except:
 #        pass
 #    
-#    h1 = string_to_time(s1, settings.time_format)
-#    h2 = string_to_time(s2, settings.time_format)
-#    h3 = string_to_time(s3, settings.time_format)
-#    h4 = h1 + (h3 - h2) + timedelta(hours=settings.hours_per_day) #<Begin> + (<Return from break> - <Lunch break>) + <Hours per day>
+#    h1 = string_to_datetime(s1, settings.TIME_FORMAT)
+#    h2 = string_to_datetime(s2, settings.TIME_FORMAT)
+#    h3 = string_to_datetime(s3, settings.TIME_FORMAT)
+#    h4 = h1 + (h3 - h2) + timedelta(hours=settings.HOURS_PER_DAY) #<Begin> + (<Return from break> - <Lunch break>) + <Hours per day>
 #    
-#    print_contents(h1.strftime(settings.date_format), h1.strftime(settings.time_format), 
-#                   h2.strftime(settings.time_format), h3.strftime(settings.time_format), 
-#                   h4.strftime(settings.time_format))
+#    print_contents(h1.strftime(settings.DATE_FORMAT), h1.strftime(settings.TIME_FORMAT), 
+#                   h2.strftime(settings.TIME_FORMAT), h3.strftime(settings.TIME_FORMAT), 
+#                   h4.strftime(settings.TIME_FORMAT))

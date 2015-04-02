@@ -1,15 +1,16 @@
 #! /usr/bin/env python
 
 #Debug flag
-debug = True
+DEBUG = True
 
 #Date and time formats
-time_format = "%H:%M"
-date_format = "%d/%m/%Y"
+TIME_FORMAT = "%H:%M"
+DATE_FORMAT = "%d/%m/%Y"
 
 #Path settings
-assets_path = "assets/"
-template_path = assets_path + "templates/"
+ASSETS_PATH = "assets/"
+TEMPLATE_PATH = ASSETS_PATH + "templates/"
 
 #In application settings
-hours_per_day = 9
+HOURS_PER_DAY = 9
+MAX_APPOINTMENTS = 4

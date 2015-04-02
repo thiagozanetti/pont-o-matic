@@ -2,13 +2,9 @@
 
 from modules.controller import routes
 from modules.utils import settings
-from modules.robots.driver import AhgoraDriver
-from modules.robots.scrapper import AhgoraScrapper
-from modules.utils.utils import log
-from modules.utils.stopwatch import StopWatch
 
 if __name__ == "__main__":
-    routes.app.run(debug=settings.debug)
+    routes.app.run(debug=settings.DEBUG)
 
 #    watch = StopWatch() #tracking elapsed time
 #    watch.start()
